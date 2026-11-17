@@ -1,0 +1,24 @@
+import { useEffect } from "react";
+
+// Menambahkan class "in" ke elemen .rv saat masuk layar.
+export default function useReveal() {
+  useEffect(() => {
+    const els = document.querySelectorAll(".rv");
+    if (!("IntersectionObserver" in window)) {
+      els.forEach((e) => e.classList.add("in"));
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            io.unobserve(e.target);
+          }
+        }),
+      { threshold: 0.12 }
+    );
+    els.forEach((e) => io.observe(e));
+    return () => io.disconnect();
+  }, []);
+}

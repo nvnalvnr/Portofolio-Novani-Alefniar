@@ -1,0 +1,17 @@
+.skills { padding-bottom: clamp(4rem, 9vw, 8rem); }
+.skills-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; padding-block: clamp(2rem, 5vw, 4rem); }
+.skills-head h2 { max-width: 14ch; }
+.more { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--fg); white-space: nowrap; }
+.more svg { width: 0.8rem; height: 0.8rem; }
+
+.strip { display: flex; align-items: flex-end; gap: 0.7rem; overflow-x: auto; scroll-snap-type: x proximity; padding-bottom: 1rem; scrollbar-width: thin; scrollbar-color: #333 transparent; }
+.scard { flex: none; scroll-snap-align: start; border-radius: 4px; overflow: hidden; }
+.scard .art { height: 100%; }
+.scard.w0 { width: 15rem; height: 24rem; }
+.scard.w1 { width: 19rem; height: 28rem; }
+.scard.w2 { width: 17rem; height: 26rem; }
+.scard-in { height: 100%; display: flex; flex-direction: column; justify-content: space-between; padding: 1rem; }
+.scard-in .label { color: rgba(255, 255, 255, 0.75); }
+.scard h3 { font: 800 1.5rem/1 var(--sans); letter-spacing: -0.03em; text-transform: uppercase; margin-bottom: 0.7rem; }
+.scard ul { display: grid; gap: 0.15rem; font: 500 0.78rem/1.4 var(--mono); letter-spacing: 0.04em; color: rgba(255, 255, 255, 0.85); }
+@media (max-width: 700px) { .skills-head { flex-direction: column; align-items: flex-start; } }

@@ -1,0 +1,12 @@
+.strengths { padding-bottom: clamp(4rem, 9vw, 8rem); }
+.strengths .h-xl { padding-block: clamp(2rem, 5vw, 4rem); }
+.sgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
+.scell { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 1.2rem; display: grid; gap: 1.1rem; align-content: space-between; min-height: 12rem; transition: border-color 0.3s; }
+.scell:hover { border-color: var(--accent); }
+.scell-top { display: grid; grid-template-columns: auto 1fr auto; gap: 0.8rem; align-items: center; }
+.avatar { width: 2.6rem; height: 2.6rem; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(135deg, var(--accent), #8a2a0a); font: 500 0.72rem var(--mono); }
+.scell-top b { display: block; font: 700 0.98rem/1.2 var(--sans); }
+.tag { padding: 0.3rem 0.55rem; border-radius: 3px; background: var(--accent); font: 500 0.6rem/1 var(--mono); letter-spacing: 0.08em; }
+.scell p { font-size: 0.92rem; color: #bdb9b2; }
+@media (max-width: 900px) { .sgrid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .sgrid { grid-template-columns: 1fr; } }

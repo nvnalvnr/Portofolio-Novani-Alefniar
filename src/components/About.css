@@ -1,0 +1,16 @@
+.about { padding-bottom: clamp(4rem, 9vw, 8rem); }
+.about-grid { display: grid; grid-template-columns: 0.8fr 1.5fr; gap: clamp(1.5rem, 4vw, 4rem); padding-top: 2rem; align-items: start; }
+.about-photo { aspect-ratio: 1 / 1.1; }
+.about-photo .art { position: absolute; inset: 0; }
+.about-photo { position: relative; }
+.statement { font: 600 clamp(1.3rem, 2.5vw, 2.2rem)/1.15 var(--sans); letter-spacing: -0.015em; text-transform: uppercase; }
+.statement span { color: var(--mute); }
+.about-row { display: grid; grid-template-columns: 1.3fr 1fr; gap: 2rem; margin-top: clamp(2rem, 5vw, 4rem); align-items: end; }
+.about-text { font-size: 0.95rem; color: #bdb9b2; max-width: 46ch; }
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+.stat { background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 1.1rem 1.2rem 1rem; display: grid; gap: 0.4rem; }
+.stat b { font: 700 clamp(2.4rem, 4.4vw, 3.6rem)/1 var(--sans); letter-spacing: -0.04em; }
+@media (max-width: 800px) {
+  .about-grid, .about-row { grid-template-columns: 1fr; }
+  .about-photo { aspect-ratio: 4 / 3; }
+}

@@ -1,0 +1,8 @@
+.certs { padding-bottom: clamp(4rem, 9vw, 8rem); }
+.cgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; margin-top: 2rem; }
+.ccard { aspect-ratio: 3 / 4; border-radius: 4px; overflow: hidden; position: relative; }
+.ccard .art { position: absolute; inset: 0; }
+.ccard-in { height: 100%; padding: 1rem; display: flex; flex-direction: column; justify-content: space-between; }
+.ccard-in .label { color: rgba(255, 255, 255, 0.8); }
+.ccard h3 { font: 800 1.25rem/1.05 var(--sans); letter-spacing: -0.02em; text-transform: uppercase; }
+@media (max-width: 900px) { .cgrid { grid-template-columns: 1fr 1fr; } }
