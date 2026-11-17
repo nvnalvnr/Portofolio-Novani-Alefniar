@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { PROFILE, NAV_LINKS } from "../data";
+import { PROFILE, NAV_LINKS } from "../data.js";
 import "./Nav.css";
 
 export default function Nav() {

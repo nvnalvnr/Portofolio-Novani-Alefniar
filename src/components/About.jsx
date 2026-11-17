@@ -1,5 +1,7 @@
 import { PROFILE, STATS } from "../data";
 import Portrait from "./Portrait";
+import Counter from "./Counter";
+import { Arrow } from "./Icons";
 import "./About.css";
 
 export default function About() {
@@ -23,11 +25,16 @@ export default function About() {
           </p>
 
           <div className="about-row">
-            <p className="about-text rv">{PROFILE.about}</p>
+            <div className="about-left rv">
+              <p className="about-text">{PROFILE.about}</p>
+              <a className="btn" href={PROFILE.cv} download>
+                Download CV <Arrow />
+              </a>
+            </div>
             <div className="stats rv">
               {STATS.map(([n, l]) => (
                 <div className="stat" key={l}>
-                  <b>{n}</b>
+                  <b><Counter to={Number(n)} /></b>
                   <span className="label">{l}</span>
                 </div>
               ))}

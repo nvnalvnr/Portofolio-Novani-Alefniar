@@ -1,8 +1,104 @@
-.certs { padding-bottom: clamp(4rem, 9vw, 8rem); }
-.cgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; margin-top: 2rem; }
-.ccard { aspect-ratio: 3 / 4; border-radius: 4px; overflow: hidden; position: relative; }
-.ccard .art { position: absolute; inset: 0; }
-.ccard-in { height: 100%; padding: 1rem; display: flex; flex-direction: column; justify-content: space-between; }
-.ccard-in .label { color: rgba(255, 255, 255, 0.8); }
-.ccard h3 { font: 800 1.25rem/1.05 var(--sans); letter-spacing: -0.02em; text-transform: uppercase; }
-@media (max-width: 900px) { .cgrid { grid-template-columns: 1fr 1fr; } }
+
+.certs {
+  padding-bottom: clamp(4rem, 9vw, 8rem);
+}
+
+.cgrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.ccard {
+  position: relative;
+  min-width: 0;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.ccard .art {
+  position: absolute;
+  inset: 0;
+}
+
+.ccard-in {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: clamp(0.8rem, 1.5vw, 1rem);
+  gap: 1rem;
+}
+
+.ccard-in .label {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+}
+
+.ccard h3 {
+  max-width: 18ch;
+  font: 800 clamp(1rem, 1.5vw, 1.25rem)/1.05 var(--sans);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+  .cgrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem;
+  }
+
+  .ccard h3 {
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 560px) {
+  .certs {
+    padding-bottom: 5rem;
+  }
+
+  .cgrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+  }
+
+  .ccard {
+    aspect-ratio: 3 / 4;
+  }
+
+  .ccard-in {
+    padding: 0.75rem;
+    gap: 0.7rem;
+  }
+
+  .ccard h3 {
+    font-size: clamp(0.9rem, 3.8vw, 1.15rem);
+    line-height: 1.08;
+  }
+
+  .ccard-in .label {
+    font-size: 0.58rem;
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 360px) {
+  .cgrid {
+    gap: 0.5rem;
+  }
+
+  .ccard-in {
+    padding: 0.6rem;
+  }
+
+  .ccard h3 {
+    font-size: 0.88rem;
+  }
+}

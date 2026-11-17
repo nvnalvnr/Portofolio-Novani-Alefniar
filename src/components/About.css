@@ -1,16 +1,191 @@
-.about { padding-bottom: clamp(4rem, 9vw, 8rem); }
-.about-grid { display: grid; grid-template-columns: 0.8fr 1.5fr; gap: clamp(1.5rem, 4vw, 4rem); padding-top: 2rem; align-items: start; }
-.about-photo { aspect-ratio: 1 / 1.1; }
-.about-photo .art { position: absolute; inset: 0; }
-.about-photo { position: relative; }
-.statement { font: 600 clamp(1.3rem, 2.5vw, 2.2rem)/1.15 var(--sans); letter-spacing: -0.015em; text-transform: uppercase; }
-.statement span { color: var(--mute); }
-.about-row { display: grid; grid-template-columns: 1.3fr 1fr; gap: 2rem; margin-top: clamp(2rem, 5vw, 4rem); align-items: end; }
-.about-text { font-size: 0.95rem; color: #bdb9b2; max-width: 46ch; }
-.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
-.stat { background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 1.1rem 1.2rem 1rem; display: grid; gap: 0.4rem; }
-.stat b { font: 700 clamp(2.4rem, 4.4vw, 3.6rem)/1 var(--sans); letter-spacing: -0.04em; }
+
+.about {
+  padding-bottom: clamp(4rem, 9vw, 8rem);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.5fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  padding-top: 2rem;
+  align-items: start;
+}
+
+/* PORTRAIT */
+.about-photo {
+  position: relative;
+  aspect-ratio: 1 / 1.1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.about-photo .art {
+  position: absolute;
+  inset: 0;
+}
+
+/* INTRODUCTION */
+.about-body {
+  min-width: 0;
+}
+
+.statement {
+  max-width: 28ch;
+  font: 600 clamp(1.3rem, 2.5vw, 2.2rem)/1.15 var(--sans);
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  overflow-wrap: break-word;
+}
+
+.statement span {
+  color: var(--mute);
+}
+
+/* TEXT AND STATS */
+.about-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: clamp(1.2rem, 3vw, 2rem);
+  margin-top: clamp(2rem, 5vw, 4rem);
+  align-items: end;
+}
+
+.about-left {
+  display: grid;
+  gap: 1.4rem;
+  justify-items: start;
+  min-width: 0;
+}
+
+.about-text {
+  max-width: 46ch;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #bdb9b2;
+}
+
+.about-left .btn {
+  max-width: 100%;
+}
+
+/* STATISTICS */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+  min-width: 0;
+}
+
+.stat {
+  min-width: 0;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 1.1rem 1.2rem 1rem;
+  display: grid;
+  align-content: start;
+  gap: 0.4rem;
+}
+
+.stat b {
+  font: 700 clamp(2rem, 4.4vw, 3.6rem)/1 var(--sans);
+  letter-spacing: -0.04em;
+}
+
+.stat .label {
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+/* TABLET */
 @media (max-width: 800px) {
-  .about-grid, .about-row { grid-template-columns: 1fr; }
-  .about-photo { aspect-ratio: 4 / 3; }
+  .about-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .about-photo {
+    width: 100%;
+    max-height: 540px;
+    aspect-ratio: 4 / 3;
+  }
+
+  .about-body {
+    width: 100%;
+  }
+
+  .statement {
+    max-width: 32ch;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+  }
+
+  .about-row {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+    gap: 1.5rem;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 560px) {
+  .about {
+    padding-bottom: 4.5rem;
+  }
+
+  .about-grid {
+    padding-top: 1.5rem;
+    gap: 1.7rem;
+  }
+
+  .about-photo {
+    aspect-ratio: 4 / 3.5;
+    max-height: none;
+  }
+
+  .statement {
+    font-size: clamp(1.4rem, 6vw, 1.9rem);
+    line-height: 1.12;
+  }
+
+  .about-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .about-left {
+    gap: 1.2rem;
+  }
+
+  .about-text {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .stats {
+    gap: 0.55rem;
+  }
+
+  .stat {
+    padding: 1rem;
+  }
+
+  .stat b {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 360px) {
+  .stat {
+    padding: 0.8rem;
+  }
+
+  .stat b {
+    font-size: 1.8rem;
+  }
+
+  .stat .label {
+    font-size: 0.58rem;
+  }
 }

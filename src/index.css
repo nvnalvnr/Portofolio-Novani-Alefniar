@@ -1,3 +1,4 @@
+
 :root {
   --bg: #0b0b0b;
   --panel: #141414;
@@ -6,14 +7,25 @@
   --fg: #f3f1ee;
   --mute: #8d8a85;
   --accent: #ff5a14;
+
   --sans: "Inter Tight", system-ui, sans-serif;
   --mono: "DM Mono", ui-monospace, monospace;
+
   --pad: clamp(1rem, 3vw, 2.5rem);
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
 body {
+  min-width: 320px;
   margin: 0;
   background: var(--bg);
   color: var(--fg);
@@ -21,27 +33,168 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
-h1, h2, h3, p, ul, ol, dl, dd, figure { margin: 0; padding: 0; }
-ul, ol { list-style: none; }
-a { color: inherit; text-decoration: none; }
-button { font: inherit; }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-::selection { background: var(--accent); color: #fff; }
-section[id] { scroll-margin-top: 56px; }
 
-.pad { padding-inline: var(--pad); }
-.label { font: 500 0.68rem/1.3 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--mute); }
-.sh { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding-block: 1rem; border-bottom: 1px solid var(--line); }
-.h-xl { font: 800 clamp(2rem, 5.4vw, 5rem)/0.98 var(--sans); letter-spacing: -0.035em; text-transform: uppercase; }
-.btn { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.85rem 1.2rem; border-radius: 4px; background: var(--accent); color: #fff; font: 600 0.78rem/1 var(--sans); letter-spacing: 0.08em; text-transform: uppercase; transition: background 0.25s, color 0.25s; }
-.btn:hover { background: #fff; color: #111; }
-.btn svg { width: 0.9rem; height: 0.9rem; }
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+dl,
+dd,
+figure {
+  margin: 0;
+  padding: 0;
+}
 
-/* muncul saat di-scroll */
-.rv { opacity: 0; transform: translateY(26px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
-.rv.in { opacity: 1; transform: none; }
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+section[id] {
+  scroll-margin-top: 70px;
+}
+
+/* GLOBAL LAYOUT */
+
+.pad {
+  padding-inline: var(--pad);
+}
+
+.label {
+  font: 500 0.68rem/1.3 var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.sh {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.h-xl {
+  font: 800 clamp(2rem, 5.4vw, 5rem)/0.98 var(--sans);
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+/* BUTTON */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.2rem;
+  border: 0;
+  border-radius: 4px;
+  background: var(--accent);
+  color: #fff;
+  font: 600 0.78rem/1 var(--sans);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition:
+    background 0.25s,
+    color 0.25s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #fff;
+  color: #111;
+}
+
+.btn svg {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+/* SCROLL REVEAL */
+
+.rv {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.9s var(--ease),
+    transform 0.9s var(--ease);
+}
+
+.rv.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* RESPONSIVE GLOBAL */
+
+@media (max-width: 560px) {
+  :root {
+    --pad: 1rem;
+  }
+
+  html {
+    scroll-padding-top: 60px;
+  }
+
+  section[id] {
+    scroll-margin-top: 60px;
+  }
+
+  .sh {
+    gap: 0.6rem;
+  }
+
+  .label {
+    font-size: 0.62rem;
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-  .rv { opacity: 1; transform: none; }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .rv {
+    opacity: 1;
+    transform: none;
+  }
 }
